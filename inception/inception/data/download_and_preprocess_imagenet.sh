@@ -66,7 +66,7 @@ DOWNLOAD_SCRIPT="${WORK_DIR}/data/download_imagenet.sh"
 "${DOWNLOAD_SCRIPT}" "${SCRATCH_DIR}" "${LABELS_FILE}"
 
 # Note the locations of the train and validation data.
-TRAIN_DIRECTORY="${SCRATCH_DIR}train/"
+TRAIN_DIRECTORY="${SCRATCH_DIR}validation/"
 VALIDATION_DIRECTORY="${SCRATCH_DIR}validation/"
 
 # Preprocess the validation data by moving the images into the appropriate
