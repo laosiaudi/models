@@ -80,7 +80,8 @@ wget -nd -c "${BASE_URL}/${VALIDATION_TARBALL}"
 tar xf "${VALIDATION_TARBALL}" -C "${OUTPUT_PATH}"
 
 # Download all images from the ImageNet 2012 train dataset.
-TRAIN_TARBALL="ILSVRC2012_img_train.tar"
+#TRAIN_TARBALL="ILSVRC2012_img_train.tar"
+TRAIN_TARBALL="ILSVRC2012_img_val.tar"
 OUTPUT_PATH="${OUTDIR}train/"
 mkdir -p "${OUTPUT_PATH}"
 cd "${OUTDIR}/.."
