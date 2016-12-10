@@ -192,7 +192,7 @@ class ShowAndTellModel(object):
         trainable=self.train_inception,
         is_training=self.is_training())
     self.inception_variables = tf.get_collection(
-        tf.GraphKeys.VARIABLES, scope="InceptionV3")
+        tf.GraphKeys.GLOBAL_VARIABLES, scope="InceptionV3")
 
     # Map inception output into embedding space.
     with tf.variable_scope("image_embedding") as scope:
@@ -343,7 +343,7 @@ class ShowAndTellModel(object):
         initial_value=0,
         name="global_step",
         trainable=False,
-        collections=[tf.GraphKeys.GLOBAL_STEP, tf.GraphKeys.VARIABLES])
+        collections=[tf.GraphKeys.GLOBAL_STEP, tf.GraphKeys.GLOBAL_VARIABLES])
 
     self.global_step = global_step
 
