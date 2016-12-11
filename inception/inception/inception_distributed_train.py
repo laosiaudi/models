@@ -273,10 +273,18 @@ def train(target, dataset, cluster_spec):
       # specified interval. Note that the summary_op and train_op never run
       # simultaneously in order to prevent running out of GPU memory.
       next_summary_time = time.time() + FLAGS.save_summaries_secs
+      last_step = 0
       while not sv.should_stop():
         try:
           start_time = time.time()
-          loss_value, step = sess.run([train_op, global_step])
+          if last_step % 10 == 0:
+    		run_metadata = tf.RunMetadata()
+      		run_options = tf.RunOptions(trace_level=tf.RunOptions.FULL_TRACE)
+          	loss_value, step = sess.run([train_op, global_step], options=run_options, run_metadata=run_metadata)
+          else:
+          	loss_value, step = sess.run([train_op, global_step])
+          last_step = step
+
           assert not np.isnan(loss_value), 'Model diverged with loss = NaN'
           if step > FLAGS.max_steps:
             break
