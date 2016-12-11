@@ -333,8 +333,9 @@ def train(dataset):
 
     for step in xrange(FLAGS.max_steps):
       start_time = time.time()
+      print('start to run\n')
       if step % 10 == 0:
-        print 'step is multiple of 10!!!'
+        print('step is multiple of 10!!!\n')
     	run_metadata = tf.RunMetadata()
       	run_options = tf.RunOptions(trace_level=tf.RunOptions.FULL_TRACE)
       	_, loss_value = sess.run([train_op, loss], options=run_options, run_metadata=run_metadata)
