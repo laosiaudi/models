@@ -333,8 +333,12 @@ def train(dataset):
 
     for step in xrange(FLAGS.max_steps):
       start_time = time.time()
-      run_options = tf.RunOptions(trace_level=tf.RunOptions.FULL_TRACE)
-      _, loss_value = sess.run([train_op, loss], options=run_options)
+      if step % 10 == 0:
+      	run_options = tf.RunOptions(trace_level=tf.RunOptions.FULL_TRACE)
+      	_, loss_value = sess.run([train_op, loss], options=run_options)
+      else:
+      	_, loss_value = sess.run([train_op, loss])
+	
       duration = time.time() - start_time
 
       assert not np.isnan(loss_value), 'Model diverged with loss = NaN'
