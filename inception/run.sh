@@ -4,4 +4,4 @@ sudo bazel-bin/inception/imagenet_distributed_train \
 --job_name='worker' \
 --task_id=1 \
 --ps_hosts='m.tensorflow.cmu849.emulab.net:2222' \
---worker_hosts='s-1.tensorflow.cmu849.emulab.net:2222,s-2.tensorflow.cmu849.emulab.net:2222'
+--worker_hosts='s-1.tensorflow.cmu849.emulab.net:2222,s-2.tensorflow.cmu849.emulab.net:2222, s-1.tff.cmu849.emulab.net:2222, s-2.tff.cmu849.emulab.net:2222, s-3.tff.cmu849.emulab.net:2222'
