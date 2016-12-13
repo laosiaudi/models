@@ -290,7 +290,7 @@ def train(target, dataset, cluster_spec):
             break
           duration = time.time() - start_time
 
-          if step % 30 == 0:
+          if step % 1 == 0:
             examples_per_sec = FLAGS.batch_size / float(duration)
             format_str = ('Worker %d: %s: step %d, loss = %.2f'
                           '(%.1f examples/sec; %.3f  sec/batch)')
